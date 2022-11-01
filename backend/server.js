@@ -4,6 +4,7 @@ const dotenv = require('dotenv').config();
 const { errorHandler } = require('./middleware/errorMiddleware');
 const connectDB = require('./config/db');
 const userRoutes = require('./routes/userRoutes');
+const ticketRoutes = require('./routes/ticketRoutes');
 
 const PORT = process.env.PORT || 8000;
 
@@ -17,6 +18,7 @@ app.use(express.urlencoded({extended: false}));
 
 // ROUTES
 app.use('/api/users', userRoutes);
+app.use('/api/tickets', ticketRoutes);
 
 // MIDDLEWARES
 app.use(errorHandler);
